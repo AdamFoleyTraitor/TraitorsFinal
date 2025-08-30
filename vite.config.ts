@@ -1,23 +1,22 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   root: '.',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '.'), // map "@/..." to repo root
+      '@': fileURLToPath(new URL('.', import.meta.url)),          // @/...
+      '@shared': fileURLToPath(new URL('./shared', import.meta.url)),
+      '@components': fileURLToPath(new URL('./components', import.meta.url)),
+      '@hooks': fileURLToPath(new URL('./hooks', import.meta.url)),
+      '@pages': fileURLToPath(new URL('./pages', import.meta.url)),
+      '@lib': fileURLToPath(new URL('./lib', import.meta.url)),
     },
   },
   build: {
     outDir: 'dist',
-    rollupOptions: {
-      input: 'index.html',
-    },
+    rollupOptions: { input: 'index.html' }
   },
   plugins: [react()],
 })
