@@ -1,0 +1,746 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&family=Bebas+Neue&family=Righteous&family=Monoton&family=Press+Start+2P&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Retro Halloween Theme Base Colors */
+  --background: hsl(0, 0%, 0%);              /* Midnight Black */
+  --foreground: hsl(48, 20%, 87%);           /* Parchment Beige */
+  --card: hsl(0, 0%, 0%);                    /* Midnight Black */
+  --card-foreground: hsl(48, 20%, 87%);      /* Parchment Beige */
+  --popover: hsl(0, 0%, 0%);                 /* Midnight Black */
+  --popover-foreground: hsl(48, 20%, 87%);   /* Parchment Beige */
+  --primary: var(--neon-pink);               /* Neon Pink */
+  --primary-foreground: hsl(0, 0%, 0%);      /* Black text */
+  --secondary: var(--vivid-purple);          /* Vivid Purple */
+  --secondary-foreground: hsl(48, 20%, 87%); /* Parchment Beige */
+  --muted: hsl(0, 0%, 10%);                  /* Dark variant */
+  --muted-foreground: hsl(48, 15%, 65%);     /* Muted parchment */
+  --accent: var(--pumpkin-orange);           /* Pumpkin Orange */
+  --accent-foreground: hsl(48, 20%, 87%);    /* Parchment Beige */
+  --destructive: var(--blood-red);           /* Blood Red */
+  --destructive-foreground: hsl(0, 0%, 0%);  /* Black text */
+  --border: hsl(48, 20%, 20%);               /* Darker parchment borders */
+  --input: hsl(0, 0%, 5%);                   /* Slightly lighter black */
+  --ring: var(--pumpkin-orange);             /* Pumpkin Orange ring */
+  --chart-1: hsl(15, 100%, 60%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(0, 0%, 10%);
+  --sidebar-foreground: hsl(0, 0%, 85%);
+  --sidebar-primary: hsl(15, 100%, 60%);
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: hsl(0, 0%, 8%);
+  --sidebar-accent-foreground: hsl(15, 100%, 60%);
+  --sidebar-border: hsl(0, 0%, 15%);
+  --sidebar-ring: hsl(15, 100%, 60%);
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Cinzel', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-retro: 'Orbitron', monospace;
+  --font-neon: 'Bebas Neue', sans-serif;      /* Clean, capsule-shaped like Good Times */
+  --font-display: 'Bebas Neue', sans-serif;    /* Good Times alternative - capsule shaped */
+  --font-script: 'Righteous', cursive;         /* Streamster alternative - smooth retro */
+  --font-tech: 'Press Start 2P', monospace;    /* VCR OSD Mono alternative - pixelated */
+  --font-glow: 'Monoton', monospace;          /* Neon glow effects */
+  --radius: 1rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05);
+  --shadow-xs: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05), 0px 1px 2px -1px hsl(0, 0%, 0% / 0.1);
+  --shadow: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05), 0px 1px 2px -1px hsl(0, 0%, 0% / 0.1);
+  --shadow-md: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05), 0px 2px 4px -1px hsl(0, 0%, 0% / 0.1);
+  --shadow-lg: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05), 0px 4px 6px -1px hsl(0, 0%, 0% / 0.1);
+  --shadow-xl: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05), 0px 8px 10px -1px hsl(0, 0%, 0% / 0.1);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0, 0%, 0% / 0.05);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+  
+  /* Retro 80's Halloween Color Palette */
+  --neon-pink: #FF4DA6;             /* Primary neon pink */
+  --vivid-purple: #9C27FF;          /* Deep vivid purple */
+  --pumpkin-orange: #FF6F1F;        /* Bright pumpkin orange */
+  --blood-red: #E61938;             /* Deep blood red */
+  --soft-cream: #FBEED9;            /* Contrast text and borders */
+  --muted-green: #92b78c;           /* Subtle muted green accent */
+  
+  /* Base colors */
+  --midnight-black: #000000;        /* Page background, card backgrounds */
+  --dark-gray: #0a0a0a;             /* Card backgrounds, elevated surfaces */
+  --light-text: var(--soft-cream);  /* Main text color */
+  --muted-text: #999999;            /* Secondary text */
+  
+  /* Alias for backwards compatibility */
+  --electric-purple: var(--vivid-purple);
+  --hot-magenta: var(--neon-pink);
+  --neon-orange: var(--pumpkin-orange);
+  --electric-lime: var(--pumpkin-orange);
+  --electric-violet: var(--blood-red);
+  --witch-green: var(--pumpkin-orange);
+  --acid-purple: var(--vivid-purple);
+  --parchment-beige: var(--soft-cream);
+  --hot-pink: var(--neon-pink);
+}
+
+.dark {
+  /* Minimalist retro theme */
+  --background: var(--midnight-black);       /* Midnight Black */
+  --foreground: var(--light-text);           /* Light text */
+  --card: var(--midnight-black);             /* Midnight Black */
+  --card-foreground: var(--light-text);      /* Light text */
+  --popover: var(--midnight-black);          /* Midnight Black */
+  --popover-foreground: var(--light-text);   /* Light text */
+  --primary: var(--neon-pink);               /* Neon Pink */
+  --primary-foreground: var(--soft-cream);   /* Soft cream text */
+  --secondary: var(--vivid-purple);          /* Vivid Purple */
+  --secondary-foreground: var(--soft-cream); /* Soft cream text */
+  --muted: #1a1a1a;                          /* Subtle dark variant */
+  --muted-foreground: var(--soft-cream);     /* Soft cream text */
+  --accent: var(--pumpkin-orange);           /* Pumpkin Orange */
+  --accent-foreground: var(--soft-cream);    /* Soft cream text */
+  --destructive: var(--blood-red);           /* Blood Red */
+  --destructive-foreground: var(--soft-cream); /* Soft cream text */
+  --border: #333333;                         /* Subtle borders */
+  --input: #1a1a1a;                          /* Slightly lighter black */
+  --ring: var(--pumpkin-orange);             /* Pumpkin Orange ring */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background: var(--midnight-black);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, var(--pumpkin-orange) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, var(--retro-acid-purple) 0%, transparent 50%),
+      radial-gradient(circle at 60% 40%, var(--witch-green) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  .atmospheric-bg {
+    background: var(--midnight-black);
+    position: relative;
+  }
+
+
+
+  .card-medieval {
+    background: linear-gradient(145deg, var(--midnight-black) 0%, hsl(14, 30%, 3%) 100%);
+    border: 1px solid hsl(48, 20%, 15%);
+    box-shadow: 
+      0 10px 25px hsla(0, 0%, 0%, 0.8),
+      inset 0 1px 0 hsl(48, 20%, 10%),
+      0 0 20px hsla(14, 91%, 54%, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-medieval:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+      0 20px 40px hsla(0, 0%, 0%, 0.9),
+      0 0 40px var(--pumpkin-orange),
+      inset 0 1px 0 hsl(48, 20%, 15%);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--neon-pink), var(--vivid-purple), var(--pumpkin-orange));
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--soft-cream);
+    border: none;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 77, 166, 0.4);
+  }
+
+  .suspicion-bar {
+    background: linear-gradient(90deg, var(--vivid-purple), var(--neon-pink), var(--pumpkin-orange), var(--blood-red));
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--neon-pink);
+  }
+
+  /* Amazing 80's Halloween retro gradients */
+  .neon-gradient-heading {
+    background: linear-gradient(135deg, var(--neon-pink), var(--vivid-purple), var(--pumpkin-orange), var(--blood-red));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    text-shadow: 0 0 25px rgba(255, 77, 166, 0.6);
+    font-family: var(--font-neon);
+    letter-spacing: 2px;
+  }
+
+  .neon-gradient-title {
+    background: linear-gradient(90deg, var(--vivid-purple), var(--neon-pink), var(--pumpkin-orange));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+  }
+
+  .neon-gradient-card {
+    background: linear-gradient(45deg, var(--neon-pink), var(--vivid-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    font-family: var(--font-display);
+  }
+
+  .neon-gradient-accent {
+    background: linear-gradient(135deg, var(--pumpkin-orange), var(--blood-red), var(--neon-pink));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    font-family: var(--font-script);
+  }
+
+  /* Amazing 80s retro styling - special accent elements */
+  .retro-text {
+    font-family: var(--font-glow);
+    background: linear-gradient(45deg, var(--vivid-purple), var(--neon-pink), var(--pumpkin-orange));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px var(--vivid-purple);
+    letter-spacing: 3px;
+  }
+
+  .retro-heading {
+    font-family: var(--font-script);
+    background: linear-gradient(135deg, var(--blood-red), var(--neon-pink), var(--vivid-purple));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+  }
+
+  /* Tech UI elements - VCR OSD Mono style */
+  .tech-text {
+    font-family: var(--font-tech);
+    color: var(--electric-lime);
+    text-shadow: 0 0 10px var(--electric-lime);
+    font-size: 0.75rem;
+  }
+
+  .scanlines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      transparent 50%,
+      rgba(0, 255, 0, 0.015) 50%
+    );
+    background-size: 100% 3px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+  }
+
+  .retro-border {
+    border: 2px solid var(--pumpkin-orange);
+    border-radius: 0;
+    box-shadow: 
+      inset 0 0 0 2px var(--retro-acid-purple),
+      0 0 10px var(--pumpkin-orange),
+      0 0 20px var(--retro-acid-purple);
+    background: linear-gradient(
+      45deg,
+      transparent 24%, 
+      var(--midnight-black) 25%, 
+      var(--midnight-black) 26%, 
+      transparent 27%, 
+      transparent 74%, 
+      var(--midnight-black) 75%, 
+      var(--midnight-black) 76%, 
+      transparent 77%
+    );
+    background-size: 20px 20px;
+  }
+
+  .vhs-effect {
+    position: relative;
+    filter: contrast(1.2) brightness(1.1);
+  }
+
+  .vhs-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 0, 0, 0.01) 25%,
+      transparent 50%,
+      rgba(0, 255, 0, 0.01) 75%,
+      transparent 100%
+    );
+    animation: subtle-vhs-distortion 6s infinite linear;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.4;
+  }
+
+  @keyframes subtle-vhs-distortion {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(0.5px); }
+    50% { transform: translateX(-0.5px); }
+    75% { transform: translateX(0.3px); }
+  }
+
+  .neon-glow {
+    filter: drop-shadow(0 0 3px currentColor) drop-shadow(0 0 6px currentColor);
+    transition: filter 0.3s ease;
+  }
+
+  .neon-glow:hover {
+    filter: drop-shadow(0 0 4px currentColor) drop-shadow(0 0 8px currentColor) drop-shadow(0 0 12px var(--retro-acid-purple));
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--neon-pink), var(--vivid-purple));
+    color: var(--soft-cream);
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--vivid-purple), var(--pumpkin-orange));
+    color: var(--soft-cream);
+    box-shadow: 0 0 12px var(--neon-pink);
+  }
+
+  .btn-secondary {
+    background: linear-gradient(135deg, var(--pumpkin-orange), var(--blood-red));
+    color: var(--soft-cream);
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: linear-gradient(135deg, var(--blood-red), var(--vivid-purple));
+    color: var(--soft-cream);
+  }
+
+  .retro-card-title {
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--neon-pink), var(--vivid-purple), var(--pumpkin-orange));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+  }
+
+  .retro-card {
+    background: var(--midnight-black);
+    border: 1px solid var(--parchment-beige);
+    border-radius: 8px;
+    transition: border-color 0.2s ease;
+  }
+
+  .retro-card:hover {
+    border-color: var(--acid-purple);
+  }
+
+  /* Link styles */
+  .retro-link {
+    color: var(--witch-green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .retro-link:hover {
+    color: var(--neon-yellow);
+  }
+
+  /* Badge styles */
+  .retro-badge {
+    background: var(--neon-yellow);
+    color: var(--midnight-black);
+    font-weight: 600;
+  }
+
+  /* Harmonious neon accent styles */
+  .accent-purple {
+    color: var(--electric-purple);
+  }
+
+  .accent-magenta {
+    color: var(--hot-magenta);
+  }
+
+  .accent-orange {
+    color: var(--neon-orange);
+  }
+
+  .accent-lime {
+    color: var(--electric-lime);
+  }
+
+  /* Unified neon glow effects */
+  .neon-glow {
+    text-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+  }
+
+  .neon-glow-purple {
+    color: var(--electric-purple);
+    text-shadow: 0 0 15px var(--electric-purple), 0 0 30px var(--electric-purple);
+  }
+
+  .neon-glow-magenta {
+    color: var(--hot-magenta);
+    text-shadow: 0 0 15px var(--hot-magenta), 0 0 30px var(--hot-magenta);
+  }
+
+  .neon-glow-orange {
+    color: var(--neon-orange);
+    text-shadow: 0 0 15px var(--neon-orange), 0 0 30px var(--neon-orange);
+  }
+
+  .neon-glow-lime {
+    color: var(--electric-lime);
+    text-shadow: 0 0 15px var(--electric-lime), 0 0 30px var(--electric-lime);
+  }
+
+  .player-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .player-card:hover {
+    transform: translateX(10px);
+    border-color: var(--ember);
+  }
+
+  .player-card.selected {
+    background: linear-gradient(135deg, hsla(15, 100%, 60%, 0.2) 0%, hsla(45, 84%, 56%, 0.2) 100%);
+    border-color: var(--ember);
+    box-shadow: 0 0 20px hsla(15, 100%, 60%, 0.3);
+  }
+
+  .floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    background: hsla(15, 100%, 60%, 0.1);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--ember);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .nav-link::after {
+      display: none;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px hsla(15, 100%, 60%, 0.3); }
+  100% { box-shadow: 0 0 30px hsla(15, 100%, 60%, 0.6); }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-ember {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+.animate-slide-up { animation: slide-up 0.5s ease-out; }
+.animate-fade-in { animation: fade-in 0.3s ease-in; }
+.animate-pulse-ember { animation: pulse-ember 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-shimmer { animation: shimmer 2s linear infinite; }
+
+/* ==============================================
+   MOBILE OPTIMIZATIONS FOR THE TRAITORS GAME
+   ============================================== */
+
+/* Global mobile fixes */
+@media (max-width: 768px) {
+  /* Enhanced touch targets */
+  button, 
+  [role="button"], 
+  input, 
+  select, 
+  textarea {
+    min-height: 44px; /* Apple's recommended minimum touch target */
+    min-width: 44px;
+  }
+
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Atmospheric background mobile optimization */
+  .atmospheric-bg {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height */
+    background-attachment: scroll; /* Better mobile performance */
+  }
+
+  /* Card optimizations */
+  .card-medieval {
+    margin: 0.5rem 0;
+    padding: 1rem;
+  }
+
+  .card-medieval:hover {
+    transform: translateY(-2px) scale(1.01); /* Reduced hover effect for mobile */
+  }
+
+  /* Font size scaling for mobile */
+  .neon-gradient-title {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+
+  .neon-gradient-heading {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+
+  /* Navigation optimizations */
+  .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Button optimizations */
+  .btn-primary, 
+  .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Form input optimizations */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.75rem;
+  }
+
+  /* Text readability */
+  body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Reduced animation for battery life */
+  .neon-glow {
+    animation: none;
+  }
+
+  /* Better spacing */
+  .space-y-8 > * + * {
+    margin-top: 1.5rem !important;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 0.75rem !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  /* Further reduce text sizes */
+  .neon-gradient-title {
+    font-size: 1.25rem !important;
+  }
+
+  .neon-gradient-heading {
+    font-size: 1.75rem !important;
+  }
+
+  /* Tighter spacing */
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Stack navigation buttons vertically on very small screens */
+  .nav-buttons-mobile {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .nav-buttons-mobile button {
+    width: 100% !important;
+  }
+
+  /* Card padding adjustments */
+  .card-medieval {
+    padding: 0.75rem;
+  }
+
+  /* Form optimizations */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Reduce vertical padding in landscape */
+  .py-8 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .py-6 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  /* Compact card layout */
+  .card-medieval {
+    margin: 0.25rem 0;
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .card-medieval:hover,
+  .player-card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+
+  /* Enhance active states for touch */
+  .card-medieval:active,
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+}
+
+/* Dark mode safe scrollbars for mobile webkit */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--midnight-black);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--pumpkin-orange);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-pink);
+  }
+}
